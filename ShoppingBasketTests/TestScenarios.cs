@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
 using ShoppingBasket;
 using ShoppingBasket.Models;
+using ShoppingBasket.Utils;
 
 namespace ShoppingBasketTests
 {
@@ -12,7 +13,7 @@ namespace ShoppingBasketTests
         public void Given1bread1butter1milk_WhenCalculateTotal_ThenTotalIs295()
         {
             // Arrange
-            var systemUnderTest = new ShoppingBasketManager();
+            var systemUnderTest = new ShoppingBasketManager(new PriceCalculator());
 
             systemUnderTest.AddProduct(new Product(ProductType.Bread));
             systemUnderTest.AddProduct(new Product(ProductType.Butter));
@@ -29,7 +30,7 @@ namespace ShoppingBasketTests
         public void Given2butter2bread_WhenCalculateTotal_ThenTotalIs310()
         {
             // Arrange
-            var systemUnderTest = new ShoppingBasketManager();
+            var systemUnderTest = new ShoppingBasketManager(new PriceCalculator());
 
             systemUnderTest.AddProduct(new Product(ProductType.Butter));
             systemUnderTest.AddProduct(new Product(ProductType.Butter));
@@ -47,7 +48,7 @@ namespace ShoppingBasketTests
         public void Given4milk_WhenCalculateTotal_ThenTotalIs345()
         {
             // Arrange
-            var systemUnderTest = new ShoppingBasketManager();
+            var systemUnderTest = new ShoppingBasketManager(new PriceCalculator());
 
             systemUnderTest.AddProduct(new Product(ProductType.Milk));
             systemUnderTest.AddProduct(new Product(ProductType.Milk));
@@ -66,7 +67,7 @@ namespace ShoppingBasketTests
         public void Given2butter1bread8milk_WhenCalculateTotal_ThenTotalIs345()
         {
             // Arrange
-            var systemUnderTest = new ShoppingBasketManager();
+            var systemUnderTest = new ShoppingBasketManager(new PriceCalculator());
 
             systemUnderTest.AddProduct(new Product(ProductType.Butter));
             systemUnderTest.AddProduct(new Product(ProductType.Butter));

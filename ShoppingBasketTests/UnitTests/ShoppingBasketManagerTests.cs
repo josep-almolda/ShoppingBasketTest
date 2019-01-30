@@ -1,7 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
+using NSubstitute;
 using ShoppingBasket;
 using ShoppingBasket.Models;
+using ShoppingBasket.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,7 @@ namespace ShoppingBasketTests.UnitTests
         public void WhenFirstProductIsAddedTheListIsUpdated()
         {
             // Arrange
-            var systemUnderTest = new ShoppingBasketManager();
+            var systemUnderTest = new ShoppingBasketManager(Substitute.For<IPriceCalculator>());
 
             // Act
             systemUnderTest.AddProduct(new Product(ProductType.Bread));
@@ -30,7 +32,7 @@ namespace ShoppingBasketTests.UnitTests
         public void WhenProductIsAddedToExistingListProductIsAddedLast()
         {
             // Arrange
-            var systemUnderTest = new ShoppingBasketManager();
+            var systemUnderTest = new ShoppingBasketManager(Substitute.For<IPriceCalculator>());
             systemUnderTest.AddProduct(new Product(ProductType.Butter));
             systemUnderTest.AddProduct(new Product(ProductType.Bread));
             systemUnderTest.AddProduct(new Product(ProductType.Milk));
