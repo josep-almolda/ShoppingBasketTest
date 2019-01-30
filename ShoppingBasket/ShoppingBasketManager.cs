@@ -23,7 +23,7 @@ namespace ShoppingBasket
 
         public decimal CalculateTotal()
         {
-            throw new NotImplementedException();
+            return _priceCalculator.CalculateBasketTotal(ProductsList);
         }
     }
 }

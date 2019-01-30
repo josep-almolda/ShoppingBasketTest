@@ -28,7 +28,7 @@ namespace ShoppingBasketTests.ShoppingBasketManagerTests
 
             // Assert
             priceCalculatorMock.Received()
-                .CalculateBasketTotal(Arg.Is<List<Product>>(x => x.Count == 3));
+                .CalculateBasketTotal(Arg.Is<List<Product>>(x => x.Count == 2));
             priceCalculatorMock.Received()
                 .CalculateBasketTotal(Arg.Is<List<Product>>(x => x[0].Type == ProductType.Bread));
             priceCalculatorMock.Received()
