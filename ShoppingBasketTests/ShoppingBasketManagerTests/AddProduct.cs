@@ -12,7 +12,7 @@ using System.Text;
 namespace ShoppingBasketTests.UnitTests
 {
     [TestClass]
-    public class ShoppingBasketManagerTests
+    public class AddProduct
     {
         [TestMethod]
         public void WhenFirstProductIsAddedTheListIsUpdated()
