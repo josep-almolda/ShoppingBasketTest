@@ -1,7 +1,9 @@
 # ShoppingBasketTest
 
 Here are some comments about my solution
-
+## How to run
+The class library cannot be run directly, but the `MsTest` project should run in VS2017
+using the `Test Explorer` window, or `Run Tests` if using `Resharper`
 ## Dependency Injection
 Because the main project is just a class library, DI is not fully implemented. 
 To use .NET core DI or a third party like `Autofac` I'd need an MVC project, or a WebAPI,
